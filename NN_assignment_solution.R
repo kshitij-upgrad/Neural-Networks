@@ -129,11 +129,3 @@ nnet_final <- nnet_5
 prediction <- h2o.predict(nnet_5, telecom_validation[,-10])
 prediction2 <- cbind(as.data.frame(prediction[,1]) , as.data.frame(telecom_validation[,10]))
 confusionMatrix(prediction2[, 1], prediction2[, 2], positive = 'Yes')  
-  
-
-## Test data: Not a part of the assignment solution
-telecom_test <- h2o.importFile("telecom_nn_test.csv")
-  
-prediction <- h2o.predict(nnet_5, telecom_test[,-10])
-prediction2 <- cbind(as.data.frame(prediction[,1]) , as.data.frame(telecom_test[,10]))
-confusionMatrix(prediction2[, 1], prediction2[, 2], positive = 'Yes')  
